@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAENSA — Predictive Quality</title>
+  <meta name="description" content="Predict food quality risks with intelligent sensing and AI. SAENSA turns physical signals from crates, pallets and containers into actionable freshness insights." />
+  <meta name="theme-color" content="#0D111D" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="mark">SAENSA</span>
+      <span class="loader-line"><i></i></span>
+      <span class="mono">Calibrating sensors</span>
+    </div>
+  </div>
+
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a href="#" class="logo" data-goto="0" aria-label="SAENSA home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-word">SAENSA</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how" data-goto="1.02">How it works</a>
+      <a href="#cases">Use cases</a>
+      <a href="#cta">Team</a>
+    </nav>
+    <a href="#cta" class="btn btn-primary btn-sm">Start pilot</a>
+  </header>
+
+  <!-- Fixed narrative layer: every element fades in/out on the scroll timeline (data-t="in,out") -->
+  <div class="overlay">
+    <div class="caption" data-t="-1,0.12">
+      <span class="mono">06:42 · Field 04 · Post-harvest</span>
+      <p>Every harvest leaves the field perfect.</p>
+    </div>
+    <div class="caption" data-t="0.15,0.34">
+      <span class="mono">T + 0 h · Respiration begins</span>
+      <p>Then quality starts fading, quietly, long before anyone can see it.</p>
+    </div>
+    <div class="caption" data-t="0.37,0.6">
+      <span class="mono"><b class="dot"></b>Sensing active</span>
+      <p>SAENSA reads the signals underneath.</p>
+    </div>
+
+    <div class="scroll-hint" data-t="-1,0.05">
+      <span class="mono">Scroll to sense</span>
+      <span class="scroll-line"><i></i></span>
+    </div>
+
+    <section class="hero-copy" data-t="0.66,1.03" aria-labelledby="hero-title">
+      <span class="eyebrow mono"><b class="dot"></b>Predictive quality for agro-food</span>
+      <h1 id="hero-title">Improvise yourself <em>claude.</em></h1>
+      <p class="lede">Predict food quality risks with intelligent sensing and AI.</p>
+      <div class="actions">
+        <a href="#cta" class="btn btn-primary">Request a pilot <span aria-hidden="true">→</span></a>
+        <a href="#how" class="btn btn-ghost" data-goto="1.02">How it works</a>
+      </div>
+    </section>
+
+    <section class="how-copy" id="how" data-t="1.02,2.04" aria-labelledby="how-title">
+      <span class="eyebrow mono">How SAENSA works</span>
+      <h2 id="how-title">From physical signals to actionable insight.</h2>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-head"><span class="mono">01</span><h3>Sense</h3></div>
+          <p>Wireless micro-sensors ride inside crates, pallets and containers, capturing temperature, humidity, ethylene and CO₂ every few seconds.</p>
+          <span class="step-bar"><i></i></span>
+        </li>
+        <li class="step">
+          <div class="step-head"><span class="mono">02</span><h3>Learn</h3></div>
+          <p>Spiking Neural Networks process each signal as an event, at the edge, learning every product's unique respiration fingerprint.</p>
+          <span class="step-bar"><i></i></span>
+        </li>
+        <li class="step">
+          <div class="step-head"><span class="mono">03</span><h3>Predict</h3></div>
+          <p>Models forecast shelf life and decay risk hours or days before visible signs appear, with a confidence your teams can act on.</p>
+          <span class="step-bar"><i></i></span>
+        </li>
+        <li class="step">
+          <div class="step-head"><span class="mono">04</span><h3>Act</h3></div>
+          <p>Re-routing, FEFO dispatch and QA alerts flow straight into your ERP, WMS and TMS, so the right product reaches the right shelf.</p>
+          <span class="step-bar"><i></i></span>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+  <main>
+    <!-- Scroll length for the cinematic hero + how-it-works sequence -->
+    <div id="story" aria-hidden="true"></div>
+
+    <section id="cases" class="section cases">
+      <div class="section-head reveal">
+        <span class="eyebrow mono">Industry use cases</span>
+        <h2>Built for every perishable.</h2>
+        <p>Tailored predictive quality for specific agro-food verticals, protecting product integrity from harvest to retail.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21c-4.4 0-7-3.2-7-7.2C5 9.6 8 7 12 7s7 2.6 7 6.8c0 4-2.6 7.2-7 7.2Z"/><path d="M12 7c0-2 1-3.6 3-4.4M12 7c-1.4-1.6-3.2-2-5-1.6"/></svg></span>
+            <span class="tag mono">High volatility</span>
+          </div>
+          <h3>Fruit &amp; Vegetables</h3>
+          <p class="sub">Micro-environment monitoring in crates &amp; pallets</p>
+          <p>SNN models read subtle micro-climate shifts to forecast shelf-life decay before visual signs appear.</p>
+          <ul>
+            <li>Ethylene &amp; humidity micro-trend tracking</li>
+            <li>Dynamic routing on shelf-life prediction</li>
+            <li>Up to 35% fewer retail freshness rejections</li>
+          </ul>
+          <a href="#cta" class="card-link">Deploy for Fruit &amp; Vegetables <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span>
+            <span class="tag mono">Critical cold chain</span>
+          </div>
+          <h3>Meat &amp; Seafood</h3>
+          <p class="sub">Quality evolution along the cold chain</p>
+          <p>Pinpoints cold-chain breaks and predicts micro-degradation hours before regulatory thresholds are breached.</p>
+          <ul>
+            <li>Continuous thermal degradation profiling</li>
+            <li>Automated compliance audit logging</li>
+            <li>Real-time safety alerts during transit</li>
+          </ul>
+          <a href="#cta" class="card-link">Deploy for Meat &amp; Seafood <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 4 2 3v11H7V10l2-3-1-4Z"/><path d="M7 13h10"/></svg></span>
+            <span class="tag mono">Fast turnaround</span>
+          </div>
+          <h3>Dairy &amp; Ready-to-Eat</h3>
+          <p class="sub">Product-centric freshness visibility</p>
+          <p>Transforms raw environmental data into actionable freshness indices for individual batch shipments.</p>
+          <ul>
+            <li>Package-level freshness scoring</li>
+            <li>Optimised FIFO → FEFO dispatch</li>
+            <li>Packaging seal breach detection</li>
+          </ul>
+          <a href="#cta" class="card-link">Deploy for Dairy &amp; RTE <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span>
+            <span class="tag mono">Bulk transport</span>
+          </div>
+          <h3>Petfood &amp; Grain</h3>
+          <p class="sub">Deviation detection on long shipping lanes</p>
+          <p>Monitors container atmospheres against humidity spikes, rancidity and mold during ocean and rail freight.</p>
+          <ul>
+            <li>Moisture migration &amp; hot-spot detection</li>
+            <li>Container atmospheric stability scoring</li>
+            <li>Long-lane intermodal risk mitigation</li>
+          </ul>
+          <a href="#cta" class="card-link">Deploy for Petfood &amp; Grain <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="cta" class="section cta">
+      <div class="stats reveal">
+        <div><strong>35%</strong><span>fewer retail freshness rejections, up to</span></div>
+        <div><strong>24/7</strong><span>product-level visibility from field to shelf</span></div>
+        <div><strong>Edge</strong><span>spiking neural networks, low-power and domain-agnostic</span></div>
+      </div>
+      <div class="cta-box reveal">
+        <span class="eyebrow mono"><b class="dot"></b>Seamless sensor &amp; IoT integration</span>
+        <h2>Your produce is already sending signals.<br /><span>Start listening.</span></h2>
+        <p>Don't see your product category? Our architecture is domain-agnostic. We build custom micro-environment training sets with specialised producers.</p>
+        <div class="actions">
+          <a href="#cta" class="btn btn-primary">Request a targeted pilot <span aria-hidden="true">→</span></a>
+          <a href="#cta" class="btn btn-ghost">Consult an AI specialist</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="#" class="logo" data-goto="0"><span class="logo-mark" aria-hidden="true"></span><span class="logo-word">SAENSA</span></a>
+      <nav aria-label="Footer">
+        <a href="#how" data-goto="1.02">How it works</a>
+        <a href="#cases">Use cases</a>
+        <a href="#cta">Contact</a>
+      </nav>
+      <span class="mono small">© 2026 SAENSA Innovation · Predictive quality</span>
+    </footer>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
